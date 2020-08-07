@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+// Import Dependencies
+import React, {Component} from 'react';
+
+// Import Components
+import Header from './Components/Header/Header';
+import Dashboard from './Components/Dashboard/Dashboard';
+import Form from './Components/Form/Form';
+
+// Import CSS Files
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      inventory: []
+      
+    } // End this.state
+  } // End Constructor
+
+  componentDidMount() {
+    console.log('App CompDidMount Called');
+    //Get Inventory from database
+  }
+
+
+  render() {
+    return (
+      <div className="App-Main">
+        <Header/>
+        <Dashboard/>
+        <Form/>
+      </div>
+    ); //End Return
+  } //End Render
+} //End App
 
 export default App;
