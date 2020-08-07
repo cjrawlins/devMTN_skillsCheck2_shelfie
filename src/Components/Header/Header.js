@@ -8,7 +8,10 @@ import React from 'react';
 function Header() {
     return (
         <div className="Header-Main">
-            <h1>Header</h1>
+            <div className='header-container'>
+                <img className="header-image" src="./headerImage.png" alt="#"></img>
+                <h1>SHELFIE</h1>
+            </div>
         </div>
     ); // End Return
 

@@ -23,6 +23,13 @@ massive({
         })
         .catch( error => console.log(error));
 
+// Endpoints
+app.get('/api/inventory', ctrl.getAllProducts);
+//app.get('/api/inventory', ctrl.getProduct);
+//app.post('/api/inventory', ctrl.addProduct);
+
+
+
 //Set up server to listen on port and log
 app.listen(SERVER_PORT, () => {
     console.log(`Server listening on port ${SERVER_PORT}.`);

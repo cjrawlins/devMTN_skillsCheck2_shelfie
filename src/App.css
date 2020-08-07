@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+.App-Main {
+  display: flex;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* // ----- Header ----- // */
+.Header-Main {
+  background-color: #ab2a19;
+  height: 50px;
+  width: 100vw;
+  font-weight: bolder;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-container {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-image {
+  height: 30px;
+  padding: 10px;
+}
+
+/* // ----- main contains Form and Header ----- // */
+.main-container {
+  display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+/* // ----- Form ----- // */
+
+.Form-Main {
+  background-color: #3AD886;
+  height: 500px;
+  width: 400px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 20px;
+
+}
+
+.image-container {
+  height: 250px;
+  width: 100%;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+#form-image {
+  height: 100%;
+  width: 350px;
+  object-fit: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.form-input-container {
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-label, .form-input {
+  /* border: 1px solid white; */
+  width: 90%;
+}
+
+
+
+/* // ----- Dashboard ----- // */
+.Dashboard-Main {
+  /* background-color: orange; */
+  height: auto;
+  width: calc(100vw - 500px);
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	align-content: center;
+}
+
+/* // ----- Product Card ----- // */
+.Product-Main {
+  background-color: #ab2a19;
+  font-size: larger;
+  font-weight: bolder;
+  border-radius: 5%;
+  margin: 10px;
+  height: 150px;
+  width: 400px;
+  display: flex;
+}
+
+.card-image-container {
+  height: 100%;
+  width: 50%;
+}
+
+.card-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  object-fit: scale;
+}
+
+
+.card-button-container {
+  margin-top: 80px;
+  width: 200px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-buttons {
+  background-color: #3AD886;
+  height: 20px;
+  border: none;
+  border-radius: 10%;
+}
+
+@media screen and (max-width: 1000px) {
+  .header-container {
+    width: 500px;
   }
 }

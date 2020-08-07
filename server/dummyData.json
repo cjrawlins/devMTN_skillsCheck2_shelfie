@@ -1,0 +1,22 @@
+[
+    {
+        "name:": "name1",
+        "price": 1,
+        "imageurl": "https://www.w3schools.com/css/paris.jpg"
+    },
+    {
+        "name:": "name2",
+        "price": 2,
+        "imageurl": "https://www.w3schools.com/css/paris.jpg"
+    },
+    {
+        "name:": "name3",
+        "price": 3,
+        "imageurl": "https://www.w3schools.com/css/paris.jpg"
+    },
+    {
+        "name:": "name4",
+        "price": 4,
+        "imageurl": "https://www.w3schools.com/css/paris.jpg"
+    }
+]

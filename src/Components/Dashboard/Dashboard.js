@@ -1,16 +1,27 @@
 // Import Dependencies
-import React from 'react';
+import React, {Component} from 'react';
 
 // Import Components
 import Product from '../Product/Product';
 
 // Import CSS Files
 
-function Dashboard() {
+function Dashboard(props) {
+
+    const productMap = props.currInventory.map( function( curr, index ) {
+        return (
+            <Product 
+                key={index}
+                cardInfo={curr}
+                // name={curr.name}
+                // price={curr.price} 
+            />
+        )
+    } )
+
     return (
         <div className="Dashboard-Main">
-            <h1>Dashboard</h1>
-            <Product />
+            {productMap}
         </div>
     ); // End Return
 
