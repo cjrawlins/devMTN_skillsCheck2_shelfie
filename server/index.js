@@ -24,9 +24,10 @@ massive({
         .catch( error => console.log(error));
 
 // Endpoints
-app.get('/api/inventory', ctrl.getAllProducts);
+app.get('/api/inventory', ctrl.getAllInventory);
+app.post('/api/inventory', ctrl.addProduct);
+app.delete('/api/inventory/:id', ctrl.deleteProduct);
 //app.get('/api/inventory', ctrl.getProduct);
-//app.post('/api/inventory', ctrl.addProduct);
 
 
 

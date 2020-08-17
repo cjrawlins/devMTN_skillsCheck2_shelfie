@@ -2,9 +2,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-//Temp
-import dummyData from './dummyData.json';
-
 // Import Components
 import Header from './Components/Header/Header';
 import Dashboard from './Components/Dashboard/Dashboard';
@@ -18,36 +15,62 @@ class App extends Component {
   constructor() {
     super()
 
+    this.getAllInventory();
+
     this.state = {
-      inventory: []
+      inventory: [],
+      prodToEdit: {}
       
     } // End this.state
+    
   } // End Constructor
 
-  componentDidMount() {
-    console.log('App CompDidMount Called');
-    this.setState( { inventory: dummyData } )
-    //this.getAllInventory();
-  }
 
   getAllInventory = () => {
-    axios.get(`/api/inventory/`)
+     axios.get("/api/inventory/")
       .then( res => {
         this.setState( { inventory: res.data } )
+        console.log("Get Inventory App", res.data);
       } )
-      .catch( err => console.log( "Error: ", err ) )
+      .catch( err => console.log( "Error: ", err )
+      )
   }
 
 
+  addProduct = (name, price, imgurl) => {
+    axios.post("/api/inventory/", {name, price, imgurl})
+     .then( res => {
+       this.setState( { inventory: res.data } )
+       console.log("Add Product App", res.data);
+     } )
+     .catch( err => console.log( "Error: ", err )
+     )
+  }
+
+    editProduct = (prodId) => {
+      console.log("Edit Card in App");
+      const prodData = this.state.inventory.find( e => { 
+        return e.id === prodId;
+      })
+      console.log("Product Found: ", prodData)
+      this.setState( { prodToEdit: prodData } )
+    }
 
   render() {
+    //this.getAllInventory();
     return (
       <div className="App-Main">
         <Header/>
         <main className="main-container">
-          <Form/>
+          <Form
+            addProduct = {this.addProduct}
+            prodToEdit = {this.state.prodToEdit}
+          />
           <Dashboard
             currInventory = {this.state.inventory}
+            getAllInventory = {this.getAllInventory}
+            deleteProduct = {this.deleteProduct}
+            editProduct = {this.editProduct}
           />
         </main>
       </div>
