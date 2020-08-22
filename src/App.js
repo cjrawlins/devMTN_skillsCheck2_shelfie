@@ -15,62 +15,78 @@ class App extends Component {
   constructor() {
     super()
 
-    this.getAllInventory();
+
 
     this.state = {
       inventory: [],
       prodToEdit: {}
-      
-    } // End this.state
-    
-  } // End Constructor
+    }
+    this.updateForce = this.updateForce.bind(this);
+  }
 
-
-  getAllInventory = () => {
-     axios.get("/api/inventory/")
+  componentDidMount() {
+    axios.get("/api/inventory/")
       .then( res => {
         this.setState( { inventory: res.data } )
-        console.log("Get Inventory App", res.data);
       } )
       .catch( err => console.log( "Error: ", err )
       )
   }
 
+  getAllInventory = () => {
+     console.log("Get All Inventory");
+     axios.get("/api/inventory/")
+      .then( res => {
+        this.setState( { inventory: res.data } )
+      } )
+      .catch( err => console.log( "Error: ", err )
+      )
+  }
 
   addProduct = (name, price, imgurl) => {
     axios.post("/api/inventory/", {name, price, imgurl})
      .then( res => {
        this.setState( { inventory: res.data } )
-       console.log("Add Product App", res.data);
      } )
      .catch( err => console.log( "Error: ", err )
      )
   }
 
     editProduct = (prodId) => {
-      console.log("Edit Card in App");
       const prodData = this.state.inventory.find( e => { 
         return e.id === prodId;
       })
-      console.log("Product Found: ", prodData)
       this.setState( { prodToEdit: prodData } )
     }
 
+    updateForce() {
+      console.log("Force App Update Called", this.state.inventory);
+      if (this.state.inventory.length === 0) {
+        console.log('Empty Array Getting Inventory');
+        this.getAllInventory();
+      } else {
+        console.log('Not Empty Array');
+      this.setState({});
+      }
+    }
+
   render() {
-    //this.getAllInventory();
     return (
       <div className="App-Main">
         <Header/>
         <main className="main-container">
           <Form
+            getAllInventory = {this.getAllInventory}
             addProduct = {this.addProduct}
             prodToEdit = {this.state.prodToEdit}
+            updateForce = {this.updateForce}
           />
           <Dashboard
             currInventory = {this.state.inventory}
             getAllInventory = {this.getAllInventory}
             deleteProduct = {this.deleteProduct}
             editProduct = {this.editProduct}
+            updateForce = {this.updateForce}
           />
         </main>
       </div>

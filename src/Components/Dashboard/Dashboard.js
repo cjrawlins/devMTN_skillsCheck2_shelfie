@@ -11,14 +11,13 @@ import Product from '../Product/Product';
 function Dashboard(props) {
 
     function deleteProduct(prodId) {
-        console.log("Delete Card in Dash. Card: ", prodId);
         axios.delete(`/api/inventory/${prodId}`)
           .catch( err => console.log( "Error: ", err ))
           props.getAllInventory();
       }
+    
 
-    console.log("Inventory Dashboard", props.currInventory);
-    const productMap = props.currInventory.map( function( curr, index ) {
+    let productMap = props.currInventory.map( function( curr, index ) {
         return (
             <Product 
                 key={index}
@@ -34,6 +33,9 @@ function Dashboard(props) {
 
     return (
         <div className="Dashboard-Main">
+            <div className="dash-refresh-button-container">
+                <button className="dash-refresh-button" onClick={props.updateForce}>Update</button>
+            </div>
             {productMap}
         </div>
     ); // End Return

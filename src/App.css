@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-/* // ----- Header ----- // */
+/*  ----- Header -----  */
 .Header-Main {
   background-color: #ab2a19;
   height: 50px;
@@ -28,7 +28,7 @@
   padding: 10px;
 }
 
-/* // ----- main contains Form and Header ----- // */
+/*  ----- main contains Form and Header -----  */
 .main-container {
   display: flex;
 	flex-direction: row-reverse;
@@ -36,8 +36,8 @@
 	justify-content: center;
 }
 
-/* // ----- Form ----- // */
 
+/*  ----- Form -----  */
 .Form-Main {
   background-color: #3AD886;
   height: 500px;
@@ -47,12 +47,26 @@
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
+}
 
+.form-top-toggle-container {
+  width: 90%;
+  background-color: whitesmoke;
+}
+
+.form-toggle-buttons {
+  width: 50%;
+  background-color: #3AD886;
+  margin: 0;
+  border-bottom: none;
 }
 
 .image-container {
-  height: 250px;
-  width: 100%;
+  height: 220px;
+  width: 90%;
+  background-color: white;
+  margin-top: 0;
+  /* --- for Children ---- */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +75,10 @@
 #form-image {
   height: 100%;
   width: 350px;
-  object-fit: cover;
+  background-image: url("./blankimage.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+
 }
 
 .form-input-container {
@@ -79,7 +96,7 @@
 
 
 
-/* // ----- Dashboard ----- // */
+/*  ----- Dashboard -----  */
 .Dashboard-Main {
   /* background-color: orange; */
   height: auto;
@@ -92,7 +109,15 @@
 	align-content: center;
 }
 
-/* // ----- Product Card ----- // */
+.dash-refresh-button-container {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+/*  ----- Product Card -----  */
 .Product-Main {
   background-color: #ab2a19;
   font-size: larger;

@@ -27,9 +27,7 @@ massive({
 app.get('/api/inventory', ctrl.getAllInventory);
 app.post('/api/inventory', ctrl.addProduct);
 app.delete('/api/inventory/:id', ctrl.deleteProduct);
-//app.get('/api/inventory', ctrl.getProduct);
-
-
+app.put('/api/inventory/:id', ctrl.updateProduct);
 
 //Set up server to listen on port and log
 app.listen(SERVER_PORT, () => {

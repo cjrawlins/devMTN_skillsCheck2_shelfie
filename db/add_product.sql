@@ -3,4 +3,5 @@ INSERT INTO inventory
 VALUES
 ( $1, $2, $3);
 
-SELECT * FROM inventory;
+SELECT * FROM inventory
+ORDER BY id;

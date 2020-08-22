@@ -16,7 +16,7 @@ module.exports = {
     addProduct: async (req, res) => {
         console.log("---API Call Add Product Inventory---");
         const db = req.app.get('db');
-        let { name, price, imgurl } = req.body;
+        const { name, price, imgurl } = req.body;
         await db.add_product( [ name, price, imgurl ] )
         .then( data => {
             res.status(200).send( data )
@@ -39,7 +39,18 @@ module.exports = {
         });
     },
 
-    updateProduct: (req, res) => {
-
+    updateProduct: async (req, res) => {
+        console.log("---API Call Update Product---");
+        const db = req.app.get('db');
+        const { id } = req.params;
+        const { name, price, imgurl } = req.body;
+        await db.update_product( [ id, name, price, imgurl ] )
+        .then( data => {
+            res.status(200).send( data )
+        } )
+        .catch(err => {
+            res.status(500).send({ errorMessage: "Error Updating Product" });
+            console.log(err)
+        });
     }
 }
